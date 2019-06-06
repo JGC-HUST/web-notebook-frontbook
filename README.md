@@ -1,4 +1,5 @@
 # web-notebook
+<<<<<<< HEAD
 
 ## Project setup
 ```
@@ -27,3 +28,6 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+=======
+This is a web notebook.
+>>>>>>> 49a7e819f56115ed704f6b0aa8024c5842336b4d
