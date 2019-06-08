@@ -1,4 +1,5 @@
 import Home from '../views/Home.vue'
+import Notebook from '../views/Notebook.vue'
 import Login from '../components/Login.vue'
 
 export default [
@@ -23,5 +24,10 @@ export default [
             },
         ]
     },
+    {
+        path: '/notebook',
+        name: 'notebook',
+        component: () => import(/* webpackChunkName: "about" */ '../views/Notebook.vue')
+    }
 
 ]

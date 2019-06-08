@@ -49,8 +49,6 @@ canvas {
 	display: block;
 }
 
-/* ---- particles.js container ---- */
-
 #particles {
 	position: absolute;
 	width: 100%;

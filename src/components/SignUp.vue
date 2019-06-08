@@ -3,7 +3,7 @@
 		<a-form-item>
 			<a-input
 				v-decorator="[
-					'userName',
+					'username',
 					{ rules: [{ required: true, message: '请输入用户名!' }, { min: 8, message: '用户名最短8位' }] }
 				]"
 				placeholder="Username"
@@ -20,7 +20,7 @@
 				type="password"
 				placeholder="Password"
 			>
-				<a-icon slot="prefix" type="lock" style="color: rgba(0,0,0,.25)" />
+					<a-icon slot="prefix" type="lock" style="color: rgba(0,0,0,.25)" />
 			</a-input>
 		</a-form-item>
 		<a-form-item>
@@ -46,6 +46,7 @@
 				<a-icon slot="prefix" type="mail" style="color: rgba(0,0,0,.25)" />
 			</a-input>
 		</a-form-item>
+
 		<a-form-item>
 			<a-button type="primary" html-type="submit" class="login-form-button">
 				注册
@@ -55,6 +56,7 @@
 </template>
 
 <script>
+import { setTimeout } from 'timers';
 export default {
 	beforeCreate() {
 		this.form = this.$form.createForm(this);
@@ -65,6 +67,19 @@ export default {
 			this.form.validateFields((err, values) => {
 				if (!err) {
 					console.log("Received values of form: ", values);
+					this.axios.post('http://127.0.0.1:8360/user', values).then((response) => {
+						let result = response.data.data;
+						if (result.code === 1) {
+							this.$message.success("注册成功", 3);
+							setTimeout(()=>{
+								this.$router.push({
+									path: '/login'
+								})
+							}, 3000);
+						} else {
+							this.$message.error("注册失败", 3);
+						}
+					})
 				}
 			});
 		}
