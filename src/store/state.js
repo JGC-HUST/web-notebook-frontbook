@@ -1,5 +1,7 @@
 export default {
     categories: [],
     article: [],
-    userInfo: {}
+    userInfo: {},
+    currentCate: '',
+    currentArticle: ''
 }

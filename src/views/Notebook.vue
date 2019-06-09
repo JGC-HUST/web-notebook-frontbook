@@ -1,7 +1,7 @@
 <template>
 	<a-layout id="components-layout-demo-top-side-2">
 		<a-layout-header class="header">
-			<div class="logo">网络日志</div>
+			<div class="logo" @click="$router.push({ path: '/notebook/monitor' })">网络日志</div>
 			<div class="avator">
 				<a-dropdown :trigger="['click']">
 					<a class="ant-dropdown-link" href="#">{{ userInfo.username }} <a-icon type="down" /> </a>
@@ -117,5 +117,8 @@ export default {
 }
 .menu-item {
 	text-align: center;
+}
+.logo:hover {
+	cursor: pointer;
 }
 </style>

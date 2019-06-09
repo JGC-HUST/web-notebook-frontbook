@@ -7,5 +7,11 @@ export default {
     },
     getArticle(state) {
         return state.article
+    },
+    getCurrentCate(state) {
+        return state.currentCate
+    },
+    getCurrentArticle(state) {
+        return state.currentArticle
     }
 }
