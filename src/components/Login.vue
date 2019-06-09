@@ -48,26 +48,27 @@ export default {
 		this.form = this.$form.createForm(this);
 	},
 	methods: {
-
 		handleSubmit(e) {
 			e.preventDefault();
 			this.form.validateFields((err, values) => {
 				if (!err) {
 					console.log("Received values of form: ", values);
-					this.axios.get('http://127.0.0.1:8360/user', {
-						params: values
-					}).then((response) => {
-						let result = response.data.data;
-						if (result.code === 1) {
-							this.$router.replace({
-									path: '/notebook'
-								})
-						}
-					})
+					this.axios
+						.get("http://127.0.0.1:8360/user", {
+							params: values
+						})
+						.then(response => {
+							let result = response.data.data;
+							if (result.code === 1) {
+								this.$store.commit("updateUser", values);
+								this.$router.replace({
+									path: "/notebook"
+								});
+							}
+						});
 				}
 			});
 		}
-
 	}
 };
 </script>

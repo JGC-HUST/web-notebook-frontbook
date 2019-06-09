@@ -1,5 +1,5 @@
 export default {
     categories: [],
-    article: {},
-    userInfo: ''
+    article: [],
+    userInfo: {}
 }

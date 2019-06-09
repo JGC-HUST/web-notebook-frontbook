@@ -1,6 +1,7 @@
 import Home from '../views/Home.vue'
 import Notebook from '../views/Notebook.vue'
 import Login from '../components/Login.vue'
+import Monitor from '../components/Monitor.vue'
 
 export default [
     {
@@ -27,7 +28,31 @@ export default [
     {
         path: '/notebook',
         name: 'notebook',
-        component: () => import(/* webpackChunkName: "about" */ '../views/Notebook.vue')
+        component: () => import(/* webpackChunkName: "about" */ '../views/Notebook.vue'),
+        redirect: '/notebook/monitor',
+        children: [
+            {
+                path: 'monitor',
+                name: 'monitor',
+                component: Monitor
+            },
+            {
+                path: 'list',
+                name: 'list',
+                // route level code-splitting
+                // this generates a separate chunk (about.[hash].js) for this route
+                // which is lazy-loaded when the route is visited.
+                component: () => import(/* webpackChunkName: "about" */ '../components/List.vue')
+            },
+            {
+                path: 'editor',
+                name: 'editor',
+                // route level code-splitting
+                // this generates a separate chunk (about.[hash].js) for this route
+                // which is lazy-loaded when the route is visited.
+                component: () => import(/* webpackChunkName: "about" */ '../components/Editor.vue')
+            },
+        ]
     }
 
 ]

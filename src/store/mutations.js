@@ -4,5 +4,8 @@ export default {
     },
     updateArticle(state, article) {
         state.article = article;
+    },
+    updateUser(state, user) {
+        state.userInfo = user;
     }
 }
