@@ -7,5 +7,8 @@ export default {
     },
     updateUser(state, user) {
         state.userInfo = user;
+    },
+    addCategory(state, cate) {
+        state.categories.push({title: cate});
     }
 }

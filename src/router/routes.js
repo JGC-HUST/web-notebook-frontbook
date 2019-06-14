@@ -2,6 +2,7 @@ import Home from '../views/Home.vue'
 import Notebook from '../views/Notebook.vue'
 import Login from '../components/Login.vue'
 import Monitor from '../components/Monitor.vue'
+import Spin from '../components/Spin.vue'
 
 export default [
     {
@@ -29,8 +30,13 @@ export default [
         path: '/notebook',
         name: 'notebook',
         component: () => import(/* webpackChunkName: "about" */ '../views/Notebook.vue'),
-        redirect: '/notebook/monitor',
+        redirect: '/notebook/spin',
         children: [
+            {
+              path: 'spin',
+              name: 'spin',
+              component: Spin
+            },
             {
                 path: 'monitor',
                 name: 'monitor',

@@ -4,7 +4,7 @@
 			<a-input
 				v-decorator="[
 					'username',
-					{ rules: [{ required: true, message: '请输入用户名!' }, { min: 8, message: '用户名最短8位' }] }
+					{ rules: [{ required: true, message: '请输入用户名!' }, { min: 5, message: '用户名最短8位' }] }
 				]"
 				placeholder="Username"
 			>
@@ -15,7 +15,7 @@
 			<a-input
 				v-decorator="[
 					'password',
-					{ rules: [{ required: true, message: '请输入密码!' }, { min: 8, message: '密码最短8位' }] }
+					{ rules: [{ required: true, message: '请输入密码!' }, { min: 5, message: '密码最短8位' }] }
 				]"
 				type="password"
 				placeholder="Password"
